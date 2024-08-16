@@ -1,12 +1,16 @@
 # rebus
-# Clone project repository
+**Clone project repository**
+```
 cd && rm -rf rebus.core
 git clone https://github.com/rebuschain/rebus.core
 cd rebus.core
 git checkout v0.5.0
+```
 
-# Build binary
+**Build binary**
+```
 make install
+```
 
 # Set node CLI configuration
 rebusd config chain-id reb_1111-1
