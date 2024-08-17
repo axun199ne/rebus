@@ -12,11 +12,12 @@ git checkout v0.5.0
 make install
 ```
 
-# Set node CLI configuration
+**Set node CLI configuration**
+```
 rebusd config chain-id reb_1111-1
 rebusd config keyring-backend file
 rebusd config node tcp://localhost:17257
-
+```
 # Initialize the node
 rebusd init "Your Node Name" --chain-id reb_1111-1
 
