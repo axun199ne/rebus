@@ -18,8 +18,10 @@ rebusd config chain-id reb_1111-1
 rebusd config keyring-backend file
 rebusd config node tcp://localhost:17257
 ```
-# Initialize the node
+**Initialize the node**
+```
 rebusd init "Your Node Name" --chain-id reb_1111-1
+```
 
 # Download genesis and addrbook files
 curl -L https://snapshots.nodejumper.io/rebus/genesis.json > $HOME/.rebusd/config/genesis.json
