@@ -23,12 +23,16 @@ rebusd config node tcp://localhost:17257
 rebusd init "Your Node Name" --chain-id reb_1111-1
 ```
 
-# Download genesis and addrbook files
+**Download genesis and addrbook files**
+```
 curl -L https://snapshots.nodejumper.io/rebus/genesis.json > $HOME/.rebusd/config/genesis.json
 curl -L https://snapshots.nodejumper.io/rebus/addrbook.json > $HOME/.rebusd/config/addrbook.json
+```
 
-# Set seeds
+**Set seeds**
+```
 sed -i -e 's|^seeds *=.*|seeds = "718706d1a1e93c2fe9a3059588236cf96c457ff4@seed.rebus.cros-nest.com:26656,20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:17256,ebc272824924ea1a27ea3183dd0b9ba713494f83@rebus-mainnet-seed.autostake.com:26906,8542cd7e6bf9d260fef543bc49e59be5a3fa9074@seed.publicnode.com:26656,0863966356f6532377aeba663415258d44ddbd13@rebus.peer.stavr.tech:40106,ebc272824924ea1a27ea3183dd0b9ba713494f83@rebus-mainnet-peer.autostake.com:26906,9c7c067bd73bddfe8da39087cdae37c4fc5ec6e3@5.9.69.107:26656"|' $HOME/.rebusd/config/config.toml
+```
 
 # Set minimum gas price
 sed -i -e 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.01arebus"|' $HOME/.rebusd/config/app.toml
