@@ -34,19 +34,25 @@ curl -L https://snapshots.nodejumper.io/rebus/addrbook.json > $HOME/.rebusd/conf
 sed -i -e 's|^seeds *=.*|seeds = "718706d1a1e93c2fe9a3059588236cf96c457ff4@seed.rebus.cros-nest.com:26656,20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:17256,ebc272824924ea1a27ea3183dd0b9ba713494f83@rebus-mainnet-seed.autostake.com:26906,8542cd7e6bf9d260fef543bc49e59be5a3fa9074@seed.publicnode.com:26656,0863966356f6532377aeba663415258d44ddbd13@rebus.peer.stavr.tech:40106,ebc272824924ea1a27ea3183dd0b9ba713494f83@rebus-mainnet-peer.autostake.com:26906,9c7c067bd73bddfe8da39087cdae37c4fc5ec6e3@5.9.69.107:26656"|' $HOME/.rebusd/config/config.toml
 ```
 
-# Set minimum gas price
+**Set minimum gas price**
+```
 sed -i -e 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.01arebus"|' $HOME/.rebusd/config/app.toml
+```
 
-# Set pruning
+**Set pruning**
+```
 sed -i \
   -e 's|^pruning *=.*|pruning = "custom"|' \
   -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
   -e 's|^pruning-interval *=.*|pruning-interval = "17"|' \
   $HOME/.rebusd/config/app.toml
+```
 
-# Change ports
+**Change ports**
+```
 sed -i -e "s%:1317%:17217%; s%:8080%:17280%; s%:9090%:17290%; s%:9091%:17291%; s%:8545%:17245%; s%:8546%:17246%; s%:6065%:17265%" $HOME/.rebusd/config/app.toml
 sed -i -e "s%:26658%:17258%; s%:26657%:17257%; s%:6060%:17260%; s%:26656%:17256%; s%:26660%:17261%" $HOME/.rebusd/config/config.toml
+```
 
 # Download latest chain data snapshot
 curl "https://snapshots.nodejumper.io/rebus/rebus_latest.tar.lz4" | lz4 -dc - | tar -xf - -C "$HOME/.rebusd"
