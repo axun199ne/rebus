@@ -54,10 +54,13 @@ sed -i -e "s%:1317%:17217%; s%:8080%:17280%; s%:9090%:17290%; s%:9091%:17291%; s
 sed -i -e "s%:26658%:17258%; s%:26657%:17257%; s%:6060%:17260%; s%:26656%:17256%; s%:26660%:17261%" $HOME/.rebusd/config/config.toml
 ```
 
-# Download latest chain data snapshot
+**Download latest chain data snapshot**
+```
 curl "https://snapshots.nodejumper.io/rebus/rebus_latest.tar.lz4" | lz4 -dc - | tar -xf - -C "$HOME/.rebusd"
+```
 
-# Create a service
+**Create a service**
+```
 sudo tee /etc/systemd/system/rebusd.service > /dev/null << EOF
 [Unit]
 Description=Rebus node service
@@ -71,9 +74,11 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
+```
+```
 sudo systemctl daemon-reload
 sudo systemctl enable rebusd.service
-
+```
 # Start the service and check the logs
 sudo systemctl start rebusd.service
 sudo journalctl -u rebusd.service -f --no-hostname -o cat
