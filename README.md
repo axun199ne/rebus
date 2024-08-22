@@ -79,6 +79,9 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable rebusd.service
 ```
-# Start the service and check the logs
+
+**Start the service and check the logs**
+```
 sudo systemctl start rebusd.service
 sudo journalctl -u rebusd.service -f --no-hostname -o cat
+```
